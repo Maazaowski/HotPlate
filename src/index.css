@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-gradient-to-b from-gray-50 to-white;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply backdrop-blur-md bg-white/80 border border-white/20 shadow-xl;
+  }
+
+  .hover-trigger .hover-target {
+    @apply opacity-0 transition-opacity duration-300;
+  }
+
+  .hover-trigger:hover .hover-target {
+    @apply opacity-100;
+  }
+
+  .menu-item {
+    @apply relative overflow-hidden rounded-xl p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+
+  .menu-item::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-radial from-brand-yellow/20 to-transparent opacity-0 transition-opacity duration-300;
+  }
+
+  .menu-item:hover::before {
+    @apply opacity-100;
+  }
+
+  .floating-element {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-red to-brand-red-light;
+}
