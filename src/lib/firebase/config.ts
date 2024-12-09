@@ -8,7 +8,7 @@ import {
   persistentLocalCache,
   persistentMultipleTabManager
 } from 'firebase/firestore';
-import { getStorage, connectStorageEmulator } from 'firebase/storage';
+import { getStorage, connectStorageEmulator, ref } from 'firebase/storage';
 import { toast } from 'react-hot-toast';
 import { retryOperation } from './retryUtils';
 
@@ -39,11 +39,26 @@ const firebaseConfig = {
 // Initialize Firebase with enhanced offline support
 const app = initializeApp(firebaseConfig);
 
+console.log('Firebase Config:', {
+  projectId: firebaseConfig.projectId,
+  authDomain: firebaseConfig.authDomain
+});
+
 // Initialize Firestore with persistent cache
 export const db = initializeFirestore(app, {
   localCache: persistentLocalCache({
     tabManager: persistentMultipleTabManager()
   })
+});
+
+console.log('Firestore initialized');
+
+import { getDatabase } from 'firebase/database';
+import { ref as databaseRef } from 'firebase/database';
+const database = getDatabase(app);
+const connectedRef = databaseRef(database, '.info/connected');
+onValue(connectedRef, (snap) => {
+  console.log('Connection state:', snap.val() ? 'connected' : 'disconnected');
 });
 
 export const auth = getAuth(app);
@@ -89,4 +104,19 @@ export async function waitForFirebaseInit(): Promise<void> {
       resolve();
     });
   });
+}
+
+import { enableNetwork, disableNetwork } from 'firebase/firestore';
+import { onValue } from 'firebase/database';
+
+// Add this function to handle connection state
+export async function handleConnectionState() {
+  try {
+    await enableNetwork(db);
+    console.log('Firebase connection enabled');
+  } catch (error) {
+    console.error('Firebase connection error:', error);
+    // Optionally disable network to prevent constant retries
+    await disableNetwork(db);
+  }
 }
