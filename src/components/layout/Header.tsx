@@ -19,9 +19,9 @@ export function Header() {
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
-            <a href="tel:+1234567890" className="flex items-center text-white hover:text-brand-yellow transition-colors">
+            <a href="tel:+923002025719" className="flex items-center text-white hover:text-brand-yellow transition-colors">
               <Phone className="h-5 w-5 mr-1" />
-              <span>(123) 456-7890</span>
+              <span>+92 300 2025719</span>
             </a>
           </div>
         </div>
