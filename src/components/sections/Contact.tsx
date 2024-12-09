@@ -60,21 +60,21 @@ export function Contact() {
                 <Phone className="h-6 w-6 text-amber-600 mt-1" />
                 <div className="ml-4">
                   <h3 className="text-lg font-medium text-gray-900">Phone</h3>
-                  <p className="mt-1 text-gray-600">(123) 456-7890</p>
+                  <p className="mt-1 text-gray-600">+92 300 2025719</p>
                 </div>
               </div>
               <div className="flex items-start">
                 <Mail className="h-6 w-6 text-amber-600 mt-1" />
                 <div className="ml-4">
                   <h3 className="text-lg font-medium text-gray-900">Email</h3>
-                  <p className="mt-1 text-gray-600">contact@gourmetgatherings.com</p>
+                  <p className="mt-1 text-gray-600">contact@hotplate.com</p>
                 </div>
               </div>
               <div className="flex items-start">
                 <MapPin className="h-6 w-6 text-amber-600 mt-1" />
                 <div className="ml-4">
                   <h3 className="text-lg font-medium text-gray-900">Location</h3>
-                  <p className="mt-1 text-gray-600">123 Culinary Street, Foodville, FC 12345</p>
+                  <p className="mt-1 text-gray-600">Shop 296, Soldier Bazaar No.1, Karachi</p>
                 </div>
               </div>
               <div className="flex items-start">
