@@ -74,7 +74,7 @@ export function Contact() {
                 <MapPin className="h-6 w-6 text-amber-600 mt-1" />
                 <div className="ml-4">
                   <h3 className="text-lg font-medium text-gray-900">Location</h3>
-                  <p className="mt-1 text-gray-600">Shop 296, Soldier Bazaar No.1, Karachi</p>
+                  <p className="mt-1 text-gray-600">Shop No. 1, Soldier Bazaar No. 1, Karachi</p>
                 </div>
               </div>
               <div className="flex items-start">
